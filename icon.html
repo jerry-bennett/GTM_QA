@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Icon</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 128px; /* Matches Chrome's icon size */
+      width: 128px;
+      background: white;
+    }
+    canvas {
+      background: #4CAF50; /* Green background for the icon */
+      border-radius: 16px;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="iconCanvas"></canvas>
+  <script>
+    const canvas = document.getElementById("iconCanvas");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = 128;
+    canvas.height = 128;
+
+    // Draw a simple icon (QA-like design)
+    ctx.fillStyle = "#FFFFFF"; // White background for the center text
+    ctx.fillRect(16, 16, 96, 96);
+
+    ctx.fillStyle = "#000000"; // Black text
+    ctx.font = "bold 36px Arial";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText("QA", canvas.width / 2, canvas.height / 2);
+
+    // Optional: Add a border
+    ctx.strokeStyle = "#000000";
+    ctx.lineWidth = 4;
+    ctx.strokeRect(16, 16, 96, 96);
+  </script>
+</body>
+</html>

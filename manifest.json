@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "QA Screenshot Tool",
+    "version": "1.0",
+    "permissions": [
+      "activeTab",
+      "tabs",
+      "scripting"
+    ],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "icon.png"
+    },
+    "background": {
+      "service_worker": "background.js"
+    }
+  }
+  
