@@ -13,7 +13,7 @@
       background: white;
     }
     canvas {
-      background: #4CAF50; /* Green background for the icon */
+      background: linear-gradient(135deg, #4CAF50, #81C784); /* Gradient background */
       border-radius: 16px;
       width: 100%;
       height: 100%;
@@ -29,20 +29,35 @@
     canvas.width = 128;
     canvas.height = 128;
 
-    // Draw a simple icon (QA-like design)
-    ctx.fillStyle = "#FFFFFF"; // White background for the center text
-    ctx.fillRect(16, 16, 96, 96);
+    // Draw a circular border
+    ctx.beginPath();
+    ctx.arc(64, 64, 60, 0, Math.PI * 2, false);
+    ctx.fillStyle = "#FFFFFF"; // White circle background
+    ctx.fill();
+    ctx.lineWidth = 8;
+    ctx.strokeStyle = "#4CAF50"; // Border color
+    ctx.stroke();
+    ctx.closePath();
 
-    ctx.fillStyle = "#000000"; // Black text
+    // Draw a smaller inner circle
+    ctx.beginPath();
+    ctx.arc(64, 64, 50, 0, Math.PI * 2, false);
+    ctx.fillStyle = "#E8F5E9"; // Light green circle
+    ctx.fill();
+    ctx.closePath();
+
+    // Add "QA" text in the center
+    ctx.fillStyle = "#4CAF50"; // Green text color
     ctx.font = "bold 36px Arial";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.fillText("QA", canvas.width / 2, canvas.height / 2);
+    ctx.fillText("QA", 64, 64);
 
-    // Optional: Add a border
-    ctx.strokeStyle = "#000000";
-    ctx.lineWidth = 4;
-    ctx.strokeRect(16, 16, 96, 96);
+    // Add a subtle shadow for depth
+    ctx.shadowColor = "rgba(0, 0, 0, 0.2)";
+    ctx.shadowBlur = 6;
+    ctx.shadowOffsetX = 2;
+    ctx.shadowOffsetY = 2;
   </script>
 </body>
 </html>
